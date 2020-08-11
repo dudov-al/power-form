@@ -1,0 +1,34 @@
+
+<h2>Send us a message</h2>
+<form method="post" action="/contact" novalidate style="font-family: Modenine">
+  <div class="form-field <%= errors.email ? 'form-field-invalid' : '' %>" >
+    <label for="telegram">Telegram</label>
+    <input class="input" id="telegram" name="telegram" type="text" value="<%= data.telegram %>" />
+    
+  </div>
+
+  <div class="form-field <%= errors.email ? 'form-field-invalid' : '' %>">
+    <label for="email">Email</label>
+    <input class="input" id="email" name="email" type="email" value="<%= data.email %>" />
+    <% if (errors.email) { %>
+    <div class="error"><%= errors.email.msg %></div>
+    <% } %>
+  </div>
+  <div class="form-field <%= errors.address ? 'form-field-invalid' : '' %>">
+    <label for="address">Address</label>
+    <input class="input" id="address" name="address" type="text" value="<%= data.address %>" />
+    <% if (errors.address) { %>
+    <div class="error"><%= errors.address.msg %></div>
+    <% } %>
+  </div>
+  <div class="form-field <%= errors.message ? 'form-field-invalid' : '' %>">
+    <label for="message">Message</label>
+    <textarea class="input" id="message" name="message" rows="3" autofocus><%= data.message %></textarea>
+    <% if (errors.message) { %>
+    <div class="error"><%= errors.message.msg %></div>
+    <% } %>
+  </div>
+  <div class="form-actions">
+    <button class="btn" type="submit">Send</button>
+  </div>
+</form>
